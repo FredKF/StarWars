@@ -2,33 +2,40 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
-import { Nave } from '../../interface/nave.interface';
+import { ListOfStarships, Nave } from '../../interface/nave.interface';
 import { StarshipService } from '../../services/starship.service';
 
 @Component({
   selector: 'app-starships-list',
   templateUrl: './starships-list.component.html',
   styles: [
+    `p{
+      cursor:pointer;
+    }
+    `
   ]
 })
 export class StarshipsListComponent implements OnInit{
+  list: Nave[]= [];
   id : string = "";
-  naves : Nave[] =[]
 
   constructor( private starshipService : StarshipService,private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.showShip();
+    this.getAllShips();
     this.id= this.route.snapshot.paramMap.get('id')
+    console.log(this.id)
   }
 
-  showShip(){ 
-    this.starshipService.showShip().subscribe( (ships) => console.log(ships))
+  getAllShips(){ 
+    this.starshipService.getShips().subscribe( (ships) => this.list.push (ships.results[0]));
+    console.log(this.list)
+
+
   }
   
-  unaNave(id:number){
+  unaNave(id:string){
     this.router.navigate(['starships',id])
-
   }
 }
 

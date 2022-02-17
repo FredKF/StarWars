@@ -1,2 +1,24 @@
-<p>starship works!</p>
-<h1>{{ id }}</h1>
+<div class="container" *ngFor=" let nave of list">
+    <img>
+    <h2> {{nave.name}}</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae necessitatibus ad, natus totam quasi provident placeat inventore deserunt facere dolore eius eum, quibusdam a esse pariatur nulla explicabo blanditiis repellendus!</p>
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <ul>
+                <li>Model: {{nave.model}}</li>
+                <li>Cost in credits:{{ nave.cost_in_credits}}</li>
+                <li>Atmospheric Speed: {{ nave.max_atmosphering_speed}}</li>
+            </ul>
+        </div>
+        <div class="col-12 col-md-6">
+            <ul>
+                <li>Manufacturer: {{nave.manufacturer}}</li>
+                <li>Length:{{nave.length}}</li>
+                <li>Crew:{{nave.crew}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- <button (click)="unaNave(9)"></button> -->

@@ -1,3 +1,11 @@
+
+export interface ListOfStarships {
+    count:    number;
+    next:     string;
+    previous: null;
+    results:  Nave[];
+}
+
 export interface Nave {
     name:                   string;
     model:                  string;

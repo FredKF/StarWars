@@ -1,24 +1,9 @@
-<div class="container">
-    <img>
-    <h2> nombre de la nave</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae necessitatibus ad, natus totam quasi provident placeat inventore deserunt facere dolore eius eum, quibusdam a esse pariatur nulla explicabo blanditiis repellendus!</p>
-
-    <div class="row">
-        <div class="col-6">
-            <ul>
-                <li>Model:</li>
-                <li>Cost in credits:</li>
-                <li>Atmospheric Speed:</li>
-            </ul>
-        </div>
-        <div class="col-6">
-            <ul>
-                <li>Manufacturer:</li>
-                <li>Length:</li>
-                <li>Crew:</li>
-            </ul>
-        </div>
+<div class="container" *ngFor=" let nave of list">
+    <div routerLink="starship" routerLinkActive="active">
+        <p>{{nave.name}}</p>
+        <p>{{nave.model}}</p>
     </div>
-</div>
 
-<button (click)="unaNave(9)"></button>
+
+    <button>view more ...</button>
+</div>

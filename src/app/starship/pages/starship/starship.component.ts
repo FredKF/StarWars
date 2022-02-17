@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router'
+import { Nave } from '../../interface/nave.interface';
+import { StarshipService } from '../../services/starship.service';
 
 @Component({
   selector: 'app-starship',
@@ -8,11 +10,22 @@ import {Router, ActivatedRoute} from '@angular/router'
   ]
 })
 export class StarshipComponent implements OnInit {
-  id = " ";
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  list: Nave[]= [];
+  id : string = "";
+
+  constructor( private starshipService : StarshipService,private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.id= this.route.snapshot.paramMap.get('id')
+    this.getAllShips();
+    //this.id= this.route.snapshot.paramMap.get('id')
   }
 
+  getAllShips(){ 
+    this.starshipService.getShips().subscribe( (ships) => this.list.push (ships.results[0]));
+    console.log(this.list)
+  }
+  
+
+
 }
+
