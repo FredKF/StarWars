@@ -3,25 +3,26 @@ import { CommonModule } from '@angular/common';
 
 import { StarshipsListComponent } from './pages/starships-list/starships-list.component';
 import { StarshipComponent } from './pages/starship/starship.component';
-import { StarshipsComponent } from './components/starships/starships.component';
 import { LoginComponent } from './components/login/login.component';
-
+import { FiltroPipe } from './pipes/filtro.pipe';
 
 
 @NgModule({
   declarations: [
-    // StarshipsComponent,
+ 
     StarshipsListComponent,
     StarshipComponent,
-    LoginComponent
+    LoginComponent,
+    FiltroPipe
   ],
   exports:[
     StarshipsListComponent,
      StarshipComponent,
-    // StarshipsComponent,
+
   ],
   imports: [
     CommonModule,
+ 
   ]
 })
 export class StarshipsModule { }

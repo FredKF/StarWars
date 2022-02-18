@@ -7,6 +7,8 @@ export interface ListOfStarships {
 }
 
 export interface Nave {
+    id:                   string;
+    pic:                  string;
     name:                   string;
     model:                  string;
     manufacturer:           string;
@@ -14,15 +16,15 @@ export interface Nave {
     length:                 string;
     max_atmosphering_speed: string;
     crew:                   string;
-    passengers:             string;
-    cargo_capacity:         string;
-    consumables:            string;
-    hyperdrive_rating:      string;
-    MGLT:                   string;
-    starship_class:         string;
-    pilots:                 any[];
-    films:                  string[];
-    created:                Date;
-    edited:                 Date;
+    // passengers:             string;
+    // cargo_capacity:         string;
+    // consumables:            string;
+    // hyperdrive_rating:      string;
+    // MGLT:                   string;
+    // starship_class:         string;
+    // pilots:                 any[];
+    // films:                  string[];
+    // created:                Date;
+    // edited:                 Date;
     url:                    string;
 }

@@ -16,14 +16,15 @@ export class StarshipComponent implements OnInit {
   constructor( private starshipService : StarshipService,private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getAllShips();
+    this.starshipService.getAllShips()
+    .subscribe( (ships) => console.log(ships));
     //this.id= this.route.snapshot.paramMap.get('id')
   }
 
-  getAllShips(){ 
-    this.starshipService.getShips().subscribe( (ships) => this.list.push (ships.results[0]));
-    console.log(this.list)
-  }
+  // getAllShips(){ 
+  //   this.starshipService.getAllShips().subscribe( (ships) => ships);
+  //   console.log(this.list)
+  // }
   
 
 
