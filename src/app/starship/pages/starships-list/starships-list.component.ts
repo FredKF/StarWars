@@ -32,9 +32,7 @@ export class StarshipsListComponent implements OnInit{
     }
     );
   
-    this.id= this.route.snapshot.params['id']
-
-
+    this.id= this.route.snapshot.paramMap.get('id')
   }
 
   nextPage(){
@@ -46,7 +44,7 @@ export class StarshipsListComponent implements OnInit{
     this.page --
   }
 
-  unaNave(id:string){
+  infoShip(id:string){
     this.router.navigate(['starships',id])
   }
 

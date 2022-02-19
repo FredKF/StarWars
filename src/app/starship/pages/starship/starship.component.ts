@@ -21,8 +21,9 @@ export class StarshipComponent implements OnInit {
       this.list = ships;
     }
     );
-
-    this.id= this.route.snapshot.params['id']
+    
+    this.id= this.route.snapshot.paramMap.get('id')
+    this.router.navigate(['/starships', 'id'])
   }
 
 

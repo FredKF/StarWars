@@ -7,8 +7,8 @@ export interface ListOfStarships {
 }
 
 export interface Nave {
-    id:                   string;
-    pic:                  string;
+    id:                     string;
+    pic:                    string;
     name:                   string;
     model:                  string;
     manufacturer:           string;
