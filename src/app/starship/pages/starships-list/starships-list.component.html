@@ -1,13 +1,15 @@
-<div class="container" infiniteScroll (scrolled)="onScrollDronw()">
-    <div *ngFor=" let nave of shipList " routerLink="starships/:id" routerLinkActive="active">
-        <p>{{nave.name}}</p>
-        <p>{{nave.model}}</p>
+<div class="container">
+    <div *ngFor=" let nave of shipList ">
+        <div class="naves border border-white" routerLink="starships" routerLinkActive="active">
+            <p class="m-3 text-uppercase fw-bold">{{nave.name}}</p>
+            <p class="m-3 fw-bold">{{nave.model}}</p>
+        </div>
         <hr>
     </div>
-    <!-- | filtro:page
-    <button class="btn btn-primary" (click)="nextPage()"><< back</button> &nbsp;
-    <button class="btn btn-primary" (click)="backPage()">next >></button> -->
 
-    <button *ngIf="showMore" (click)="onScrollTop()"> holis </button>
+    <button class="btn btn-primary" (click)="backPage()"><< back</button> &nbsp;
+    <button class="btn btn-primary" (click)="nextPage()">next >></button>
+
+
 
 </div>

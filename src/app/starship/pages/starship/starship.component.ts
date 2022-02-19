@@ -11,21 +11,19 @@ import { StarshipService } from '../../services/starship.service';
 })
 export class StarshipComponent implements OnInit {
   list: Nave[]= [];
-  id : string = "";
+  id : string;
 
   constructor( private starshipService : StarshipService,private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.starshipService.getAllShips()
-    .subscribe( (ships) => console.log(ships));
-    //this.id= this.route.snapshot.paramMap.get('id')
-  }
+    .subscribe(ships => {
+      this.list = ships;
+    }
+    );
 
-  // getAllShips(){ 
-  //   this.starshipService.getAllShips().subscribe( (ships) => ships);
-  //   console.log(this.list)
-  // }
-  
+    this.id= this.route.snapshot.params['id']
+  }
 
 
 }

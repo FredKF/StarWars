@@ -1,17 +1,18 @@
 <div class="container" *ngFor=" let nave of list">
-    <img [src]="nave.pic" [alt]="nave.name">
-    <h2> {{nave.name}}</h2>
+
+    <img [src]="nave.pic" [alt]="nave.name" class="img-fluid mx-auto mb-4 d-flex">
+    <h2 class="text-uppercase"> {{nave.name}}</h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae necessitatibus ad, natus totam quasi provident placeat inventore deserunt facere dolore eius eum, quibusdam a esse pariatur nulla explicabo blanditiis repellendus!</p>
 
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-8 col-md-6">
             <ul>
                 <li>Model: {{nave.model}}</li>
                 <li>Cost in credits:{{ nave.cost_in_credits}}</li>
                 <li>Atmospheric Speed: {{ nave.max_atmosphering_speed}}</li>
             </ul>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-8 col-md-6">
             <ul>
                 <li>Manufacturer: {{nave.manufacturer}}</li>
                 <li>Length:{{nave.length}}</li>
@@ -20,5 +21,6 @@
         </div>
     </div>
 </div>
+
 
 <!-- <button (click)="unaNave(9)"></button> -->

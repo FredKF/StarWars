@@ -8,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
     `p{
       cursor:pointer;
     }
+    img{
+    width:150px;
+    height:100px;
+    }
     `
+  
   ]
 })
 export class MenuComponent implements OnInit {

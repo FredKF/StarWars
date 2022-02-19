@@ -10,18 +10,12 @@ import { ListOfStarships, Nave } from '../interface/nave.interface';
 })
 export class StarshipService {
 
-  private apiUrl : string = 'https://swapi.dev/api/starships'
+  private apiUrl : string = 'https://swapi.dev/api/starships';
+  private pageUrl :string = 'https://swapi.dev/api/starships/?page=';
+  private page : number = 0;
 
 
   constructor( private http : HttpClient) { }
-
-  getShipsByPages(pageNum : number){
-    
-  }
-
-  getAllData(): Observable<ListOfStarships>{
-    return this.http.get<ListOfStarships>(`${this.apiUrl}`)
- }
 
 
   getAllShips(): Observable<Nave[]>{
@@ -51,5 +45,18 @@ export class StarshipService {
        }
      })
   }
+
+  getMoreShips(): Observable<ListOfStarships>{
+    if(this.page < 4) this.page ++
+    console.log(`${this.pageUrl}${this.page}`)
+    return this.http.get<ListOfStarships>(`${this.pageUrl}${this.page}`)
+  }
+  getLessShips(): Observable<ListOfStarships>{
+    if(this.page > 0) this.page --
+    console.log(`${this.pageUrl}${this.page}`)
+    return this.http.get<ListOfStarships>(`${this.pageUrl}${this.page}`)
+  }
+
+
 
 }
