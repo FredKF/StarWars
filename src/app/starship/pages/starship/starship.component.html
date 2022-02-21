@@ -1,26 +1,24 @@
-<div class="container my-6" *ngFor=" let nave of list">
-
-    <img [src]="nave.pic" [alt]="nave.name" class="img-fluid d-block my-4 ">
-    <h2 class="text-uppercase"> {{nave.name}}</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae necessitatibus ad, natus totam quasi provident placeat inventore deserunt facere dolore eius eum, quibusdam a esse pariatur nulla explicabo blanditiis repellendus!</p>
+<div class="container my-4" *ngFor=" let nave of list">
 
     <div class="row">
+
+        <img [src]="nave.pic" [alt]="nave.name" class="img-fluid d-block my-4 ">
+        <h1 class="text-uppercase"> {{nave.name}}</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae necessitatibus ad, natus totam quasi provident placeat inventore deserunt facere dolore eius eum, quibusdam a esse pariatur nulla explicabo blanditiis repellendus!</p>
+
         <div class="col-8 col-md-6">
             <ul>
-                <li>Model: {{nave.model}}</li>
-                <li>Cost in credits:{{ nave.cost_in_credits}}</li>
-                <li>Atmospheric Speed: {{ nave.max_atmosphering_speed}}</li>
+                <li><strong>Model: </strong>{{nave.model}}</li>
+                <li><strong>Cost in credits: </strong>{{ nave.cost_in_credits}}</li>
+                <li><strong>Atmospheric Speed: </strong> {{ nave.max_atmosphering_speed}}</li>
             </ul>
         </div>
         <div class="col-8 col-md-6">
             <ul>
-                <li>Manufacturer: {{nave.manufacturer}}</li>
-                <li>Length:{{nave.length}}</li>
-                <li>Crew:{{nave.crew}}</li>
+                <li><strong>Manufacturer: </strong> {{nave.manufacturer}}</li>
+                <li><strong>Length: </strong>{{nave.length}}</li>
+                <li><strong>Crew: </strong>{{nave.crew}}</li>
             </ul>
         </div>
     </div>
 </div>
-
-
-<!-- <button (click)="unaNave(9)"></button> -->

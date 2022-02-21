@@ -13,19 +13,25 @@ export class StarshipService {
   private apiUrl : string = 'https://swapi.dev/api/starships';
   private pageUrl :string = 'https://swapi.dev/api/starships/?page=';
   private page : number = 0;
+  private id : string = '';
 
 
   constructor( private http : HttpClient) { }
 
 
+  listShips(pag?:string): Observable<ListOfStarships>{
+    let list =`${this.pageUrl}${pag}`
+    return this.http.get<ListOfStarships>(list)
+  }
+
   getAllShips(): Observable<Nave[]>{
      return this.http.get<ListOfStarships>(`${this.apiUrl}`)
      .pipe(
-       map(this.getId)
+       map(this.getAll)
      )
+    
   }
-
-  private getId(resp : ListOfStarships): Nave[]{
+  private getAll(resp : ListOfStarships){
      return resp.results.map(ship =>{
        const urlArr = ship.url.split('/');
        const id = urlArr[5];
@@ -44,8 +50,15 @@ export class StarshipService {
          url: ship.url
        }
      })
+
   }
 
+
+  getIds(id:string):Observable<Nave>{   
+    let thisShip =`${this.apiUrl}${this.id}`
+    return this.http.get<Nave>(thisShip)
+  }
+ 
   getMoreShips(): Observable<ListOfStarships>{
     if(this.page < 4) this.page ++
     console.log(`${this.pageUrl}${this.page}`)
@@ -56,10 +69,6 @@ export class StarshipService {
     console.log(`${this.pageUrl}${this.page}`)
     return this.http.get<ListOfStarships>(`${this.pageUrl}${this.page}`)
   }
-
- 
-  
-
 
 
 }
