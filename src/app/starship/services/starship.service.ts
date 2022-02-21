@@ -57,6 +57,9 @@ export class StarshipService {
     return this.http.get<ListOfStarships>(`${this.pageUrl}${this.page}`)
   }
 
+ 
+  
+
 
 
 }
