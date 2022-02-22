@@ -24,7 +24,9 @@ export class StarshipsListComponent implements OnInit{
   public page : number = 0;
   public id: string = '';
 
-  constructor (private starshipService : StarshipService, private router: Router, private route: ActivatedRoute) { }
+  constructor (private starshipService : StarshipService, private router: Router, private route: ActivatedRoute) { 
+    
+  }
 
   ngOnInit() {
   this.nextPage()

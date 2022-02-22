@@ -1,4 +1,5 @@
 <div class="container">
+    <!-- routerLink="['/shipList', nave.id]" -->
     <div *ngFor=" let nave of shipList ">
         <div class="naves border border-white mx-4 " (click)="infoShip('nave.id')">
             <p class="m-3 text-uppercase fw-bold">{{nave.name}}</p>
