@@ -13,11 +13,8 @@ export class StarshipService {
   private apiUrl : string = 'https://swapi.dev/api/starships';
   private pageUrl :string = 'https://swapi.dev/api/starships/?page=';
   private page : number = 0;
-  private id : string = '';
-
 
   constructor( private http : HttpClient) { }
-
 
   listShips(pag?:string): Observable<ListOfStarships>{
     let list =`${this.pageUrl}${pag}`
@@ -28,14 +25,15 @@ export class StarshipService {
      return this.http.get<ListOfStarships>(`${this.apiUrl}`)
      .pipe(
        map(this.getAll)
-     )
-    
+     )    
   }
+
   private getAll(resp : ListOfStarships){
-     return resp.results.map(ship =>{
-       const urlArr = ship.url.split('/');
-       const id = urlArr[5];
-       const pic = `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`
+     return resp.results.map(
+       ship =>{
+        const urlArr = ship.url.split('/');
+        const id = urlArr[5];
+        const pic = `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`
 
        return{
          id,
@@ -50,25 +48,23 @@ export class StarshipService {
          url: ship.url
        }
      })
-
   }
 
 
-  getIds(id:string){ 
-    return`${this.apiUrl}`+`:${id}`  
-   
+  getShipById(id: string): Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
- 
+
   getMoreShips(): Observable<ListOfStarships>{
     if(this.page < 4) this.page ++
     console.log(`${this.pageUrl}${this.page}`)
     return this.http.get<ListOfStarships>(`${this.pageUrl}${this.page}`)
   }
+
   getLessShips(): Observable<ListOfStarships>{
     if(this.page > 0) this.page --
     console.log(`${this.pageUrl}${this.page}`)
     return this.http.get<ListOfStarships>(`${this.pageUrl}${this.page}`)
   }
-
 
 }

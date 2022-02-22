@@ -1,4 +1,3 @@
-import { getLocaleExtraDayPeriods } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -33,9 +32,8 @@ export class StarshipsListComponent implements OnInit{
 
   }
 
-  infoShip(id:string){
-    this.id= +this.route.snapshot.paramMap.get('id')
-    this.router.navigate(['/starships',this.id])
+  infoShip(id: number){
+    this.router.navigate(['/starships', id]);
   }
 
   
@@ -43,8 +41,8 @@ export class StarshipsListComponent implements OnInit{
     this.page++
     let pag = this.page.toString()
     this.starshipService.listShips(pag).subscribe(list =>{
-      this.shipList = this.shipList.concat(list.results)
-      console.log(this.shipList)
+      this.shipList = this.shipList.concat(list.results);
+      console.log(this.shipList);
     })
   }
 
@@ -52,12 +50,10 @@ export class StarshipsListComponent implements OnInit{
     this.page--
     let pag = this.page.toString()
     this.starshipService.listShips(pag).subscribe(list =>{
-      this.shipList = this.shipList.concat(list.results)
-      console.log(this.shipList)
+      this.shipList = this.shipList.concat(list.results);
+      console.log(this.shipList);
     })
   }
-
-
 }
 
 

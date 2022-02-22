@@ -3,13 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { StarshipsListComponent } from './pages/starships-list/starships-list.component';
 import { StarshipComponent } from './pages/starship/starship.component';
-import { LoginComponent } from './components/login/login.component';
 import { FiltroPipe } from './pipes/filtro.pipe';
+import { LoginComponent } from '../components/login/login.component';
 
 
 @NgModule({
-  declarations: [
- 
+  declarations: [ 
     StarshipsListComponent,
     StarshipComponent,
     LoginComponent,

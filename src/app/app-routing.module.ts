@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MenuComponent } from './shared/menu/menu.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 
-import { LoginComponent } from './starship/components/login/login.component';
 import { StarshipComponent } from './starship/pages/starship/starship.component';
 import { StarshipsListComponent } from './starship/pages/starships-list/starships-list.component';
 
-const routes: Routes = [
-  //{path:'login',component: LoginComponent,},
-  {path:'',component: MenuComponent},
+const routes: Routes = [  
+  {path:'', component: HomeComponent},
+  {path:'login',component: LoginComponent,},
   {path:'starships',component: StarshipsListComponent},
-  {path:'starships/:id',component: StarshipComponent},
+  {path:'starships/:id',component: StarshipComponent}
 ];
 
 @NgModule({

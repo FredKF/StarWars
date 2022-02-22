@@ -6,9 +6,7 @@ import { Nave } from '../interface/nave.interface';
 })
 export class FiltroPipe implements PipeTransform {
 
-
   transform(naves: Nave[], page:number = 0): Nave[] {
     return naves.slice(page, page+5);
   }
-
 }

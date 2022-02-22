@@ -7,11 +7,13 @@ import { MenuComponent } from './shared/menu/menu.component';
 import { SharedModule } from './shared/shared.module';
 import { StarshipsModule } from './starship/starships.module';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
