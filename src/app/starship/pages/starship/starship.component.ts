@@ -7,6 +7,7 @@ import { StarshipService } from '../../services/starship.service';
   selector: 'app-starship',
   templateUrl: './starship.component.html',
   styles: [
+
   ]
 })
 export class StarshipComponent implements OnInit {
@@ -16,19 +17,21 @@ export class StarshipComponent implements OnInit {
   public page : number = 0;
 
 
-  constructor( private starshipService : StarshipService,private router: Router, private route: ActivatedRoute) {}
+  constructor( private starshipService : StarshipService,private router: Router, private route: ActivatedRoute) {
+    this.id = this.route.snapshot.paramMap.get('id')
+    console.log(this.id)
+  }
 
   
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get('id')
-    console.log(this.id)
+    this.starshipService.getIds(this.id)
 
     this.starshipService.getAllShips()
     .subscribe(ships => {
       this.list = ships;
     });
 
-    this.router.navigate(['/starships', 'id'])
+   // this.router.navigate(['/starships', this.id])
   
   }
 

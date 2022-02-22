@@ -1,7 +1,6 @@
 <div class="container">
-    <!-- routerLink="['/shipList', nave.id]" -->
     <div *ngFor=" let nave of shipList ">
-        <div class="naves border border-white mx-4 " (click)="infoShip('nave.id')">
+        <div class="naves border border-white mx-4 " (click)="infoShip('nave.id')" routerLink="[/starships, nave.id]">
             <p class="m-3 text-uppercase fw-bold">{{nave.name}}</p>
             <p class="m-3 fw-bold">{{nave.model}}</p>
         </div>

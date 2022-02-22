@@ -54,9 +54,9 @@ export class StarshipService {
   }
 
 
-  getIds(id:string):Observable<Nave>{   
-    let thisShip =`${this.apiUrl}${this.id}`
-    return this.http.get<Nave>(thisShip)
+  getIds(id:string){ 
+    return`${this.apiUrl}`+`:${id}`  
+   
   }
  
   getMoreShips(): Observable<ListOfStarships>{

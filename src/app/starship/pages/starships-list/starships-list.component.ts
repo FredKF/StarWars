@@ -22,7 +22,7 @@ export class StarshipsListComponent implements OnInit{
 
   public shipList: Nave[]= [];
   public page : number = 0;
-  public id: string = '';
+  public id: number;
 
   constructor (private starshipService : StarshipService, private router: Router, private route: ActivatedRoute) { 
     
@@ -34,8 +34,8 @@ export class StarshipsListComponent implements OnInit{
   }
 
   infoShip(id:string){
-    this.id= this.route.snapshot.paramMap.get('id')
-    this.router.navigate(['starships',id])
+    this.id= +this.route.snapshot.paramMap.get('id')
+    this.router.navigate(['/starships',this.id])
   }
 
   
