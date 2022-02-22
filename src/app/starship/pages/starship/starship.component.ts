@@ -14,6 +14,7 @@ export class StarshipComponent implements OnInit {
   list: Nave[]= [];
   oneShip: Nave = {};
   id : string;
+  url: string;
   page : number = 0;
   pic = "https://starwars-visualguide.com/assets/img/starships/${id}.jpg"
 
@@ -26,8 +27,11 @@ export class StarshipComponent implements OnInit {
   ngOnInit() {
 
     this.id = this.route.snapshot.paramMap.get('id');
-
-    this.starshipService.getShipById(this.id).subscribe(res => {
+    this.url = decodeURIComponent(this.route.snapshot.paramMap.get('url'));
+    
+    this.id = this.url.replace(/\D/g, '');
+    
+    this.starshipService.getShipById(this.id, this.url).subscribe(res => {
       const result = res;
       this.oneShip.name = res.name;
       this.oneShip.model = res.model;
