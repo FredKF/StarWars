@@ -51,9 +51,9 @@ export class StarshipService {
   }
 
 
-  getShipById(id: string, url: string): Observable<any>{
-    // return this.http.get<any>(`${this.apiUrl}/${id}`);
-    return this.http.get<any>(url);
+  getShipById(id: string): Observable<any>{
+   return this.http.get<any>(`${this.apiUrl}/${id}`);
+   
   }
 
   getMoreShips(): Observable<ListOfStarships>{

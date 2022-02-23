@@ -33,9 +33,9 @@ export class StarshipsListComponent implements OnInit{
   }
 
   infoShip(url: string){
-    let encodedUrl = encodeURIComponent(url);
-    let idInUrl = parseFloat(url);
-    this.router.navigate(['/starships', encodedUrl]);
+    let id = url.replace(/\D/g, '');
+  
+    this.router.navigate(['/starships', id]);
   }
 
   

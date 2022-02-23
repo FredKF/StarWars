@@ -30,12 +30,12 @@ export class StarshipComponent implements OnInit {
   
   ngOnInit() {
 
-    const location = window.location.href;
-
-    this.url = decodeURIComponent(this.route.snapshot.paramMap.get('url'));    
-    this.id = this.url.replace(/\D/g, '');
     
-    this.starshipService.getShipById(this.id, this.url)
+
+    this.id = this.route.snapshot.paramMap.get('id');    
+   
+    
+    this.starshipService.getShipById(this.id)
       .subscribe(res => {
         this.oneShip.name = res.name;
         this.oneShip.model = res.model;
@@ -45,6 +45,7 @@ export class StarshipComponent implements OnInit {
         this.oneShip.length = res.length;
         this.oneShip.crew = res.crew;
         this.pic = `https://starwars-visualguide.com/assets/img/starships/${this.id}.jpg`
+        
     });
   }
 
