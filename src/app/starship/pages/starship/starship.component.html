@@ -1,7 +1,8 @@
 <div class=" nave container my-4">
     <div class="row">
-        <img [src]="pic" [alt]="oneShip.name" 
+        <img [src]="pic" onerror="this.src='assets/notfound.png'" [alt]="oneShip.name" 
         class="img-fluid d-block my-4 ">
+        
         <h1 class="text-uppercase"> {{oneShip.name}}</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
         Quae necessitatibus ad, natus totam quasi provident placeat 
