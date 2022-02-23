@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { StarshipsModule } from './starship/starships.module';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { HomeComponent } from './components/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HomeComponent } from './components/home/home.component';
     SharedModule,
     StarshipsModule,
     InfiniteScrollModule,
+    BrowserAnimationsModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

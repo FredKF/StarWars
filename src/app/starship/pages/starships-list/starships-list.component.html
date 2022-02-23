@@ -1,6 +1,6 @@
 <div class="container">
-    <div *ngFor="let nave of shipList; let i = index;">
-        <div class="naves border border-white mx-4 " (click)="infoShip(i, nave.url)">
+    <div *ngFor="let nave of shipList">
+        <div class="naves border border-white mx-4 " (click)="infoShip(nave.url)">
             <p class="m-3 text-uppercase fw-bold">{{nave.name}}</p>
             <p class="m-3 fw-bold">{{nave.model}}</p>
         </div>
